@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-        chmod +x .github/check-labels.sh
+        chmod +x ".github/check-labels.sh"
         .github/check-labels.sh
       env:
         LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
