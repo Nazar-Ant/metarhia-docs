@@ -6,12 +6,14 @@ export default defineUserConfig({
   locales: {
     ...config.siteEn,
     ...config.siteUk,
+    ...config.siteRu,
   },
   theme: defaultTheme({
     logo: '/images/metarhia.png',
     locales: {
       ...config.localeEn,
       ...config.localeUk,
+      ...config.localeRu,
     },
     repo: 'https://github.com/metarhia',
     docsRepo: 'https://github.com/Nazar-Ant/metarhia-docs',
