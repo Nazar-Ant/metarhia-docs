@@ -1,4 +1,4 @@
-name: Check Labels
+name: Translation Guard
 on:
   pull_request:
     types:
@@ -11,4 +11,8 @@ jobs:
   check-labels:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "${{ toJSON(github.event.pull_request.labels.*.name) }}"
+      - run: |
+        chmod +x .github/check-labels.sh
+        .github/check-labels.sh
+      env:
+        LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
