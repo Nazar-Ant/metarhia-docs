@@ -1,0 +1,15 @@
+name: Check Labels
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - labeled
+      - unlabeled
+      - reopened
+jobs:
+  check-labels:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Labels
+        run: echo "${{github.event.pull_request.labels.*.name}}"
