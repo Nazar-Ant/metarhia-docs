@@ -13,7 +13,19 @@ jobs:
     steps:
       - name: Check Labels
         run: |
-          pwd
-          ls -laR
-        env:
-          LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
+          labels='${{ toJSON(github.event.pull_request.labels.*.name) }}'
+          language_labels=(":us: EN" ":ukraine: UK" ":ru: RU")
+          has_label() {
+            [ $(echo $labels | jq -rcM ". | index(\"$1\")") != "null" ]
+          }
+          if has_label "ready for translation"; then
+            for label in "${language_labels[@]}"; do
+              if ! has_label "$label"; then
+                echo "Missing language label: $label"
+                exit 1
+              fi
+            done
+          elif ! has_label "not translatable"; then
+            echo "The PR must at least have one of the following labels: ready for translation or not translatable"
+            exit 1
+          fi
