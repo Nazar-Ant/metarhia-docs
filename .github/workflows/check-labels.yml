@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check Labels
-        run: echo ${{github.event.pull_request.labels.*.name}}
+        run: echo '${{ github.event.pull_request.labels }}'
