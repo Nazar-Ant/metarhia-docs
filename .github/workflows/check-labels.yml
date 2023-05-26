@@ -11,5 +11,4 @@ jobs:
   check-labels:
     runs-on: ubuntu-latest
     steps:
-      - name: Check Labels
-        run: echo ${{ toJSON(github.event.pull_request.labels.*.name) }}
+      - run: echo "${{ toJSON(github.event.pull_request.labels.*.name) }}"
