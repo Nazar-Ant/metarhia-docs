@@ -13,6 +13,7 @@ jobs:
     steps:
       - name: Check Labels
         run: |
-          ls -laR "${GITHUB_WORKSPACE}"
+          pwd
+          ls -laR
         env:
           LABELS: ${{ toJSON(github.event.pull_request.labels.*.name) }}
