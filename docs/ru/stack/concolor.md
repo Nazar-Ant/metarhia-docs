@@ -6,7 +6,7 @@ Concolor - это простой пакет для Node.js для стилиза
 
 > Отображаемый цвет может отличаться, зависимости от терминала и/или используемой цветовой темы.
 
-Concolor поддерживает следующие цветоа: `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`.
+Concolor поддерживает следующие цвета: `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`.
 
 ## Доступные стили
 
